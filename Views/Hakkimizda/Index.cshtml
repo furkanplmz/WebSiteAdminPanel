@@ -1,0 +1,75 @@
+﻿@model IEnumerable<WebSiteAdminPanel.Models.Hakkimizda>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<section id="main">
+    <h3>Hakkimizda</h3>
+    @Html.Action("GridViewPartial", "Hakkimizda")
+    @foreach (var item in Model)
+    {
+        @Html.ActionLink("Güncelle", "Edit", new { id = item.HakkimizdaId }, new { @class = "edit-link", data_id = item.HakkimizdaId })
+    }
+    @*<table class="table table-bordered table-striped table-responsive-sm" id="hakkimizdaTable">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Aciklama)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Aciklama)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Güncelle", "Edit", new { id = item.HakkimizdaId }, new { @class = "edit-link", data_id = item.HakkimizdaId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>*@
+</section>
+
+
+
+@*<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "/Hakkimizda/Index/",
+            success: function (data) {
+                tabloyuDoldur(data);
+            },
+            error: function () {
+                console.error("Veri alınırken hata oluştu");
+            }
+        });
+
+
+        function tabloyuDoldur(data) {
+            var table = $("#Hakkimizda tbody");
+            table.empty();
+
+            $.each(data, function (index, item) {
+                var row = "<tr>" +
+                    "<td>" + item.Aciklama + "</td>" +
+                    "<td>" +
+                    "<a class='edit-link' data_id='" + item.HakkimizdaId + "' href='/Hakkimizda/Edit/" + item.HakkimizdaId + "'>Güncelle</a>" +
+                    "</td>" +
+                    "</tr>";
+                table.append(row);
+            });
+        }
+    });
+</script>*@
+

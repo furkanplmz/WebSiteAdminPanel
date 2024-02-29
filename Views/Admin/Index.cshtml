@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Admin Ana Sayfa";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Gösterge Paneli</h1>
+
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Ana Sayfa</a></li>
+                <li class="breadcrumb-item active">Gösterge Paneli </li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card info-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Admin Sayisi : @ViewBag.AdminSayi</h5>
+                        <div class="d-flex align-items-center">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card info-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Blog Sayisi : @ViewBag.BlogSayi</h5>
+                        <div class="d-flex align-items-center">
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card info-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Kategori Sayisi : @ViewBag.KategoriSayi</h5>
+                        <div class="d-flex align-items-center">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card info-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Hizmet Sayisi : @ViewBag.HizmetSayi</h5>
+                        <div class="d-flex align-items-center">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>

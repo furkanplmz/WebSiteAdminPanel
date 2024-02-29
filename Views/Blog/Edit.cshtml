@@ -1,0 +1,48 @@
+﻿@model WebSiteAdminPanel.Models.Blog
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Blog Kaydini Güncelle</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Blog Kaydi Ekle</h5>
+        @using (Html.BeginForm("Edit", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken();
+            @*<form class="row g-3" method="post" action="/Blog/Create/" enctype="multipart/form-data">*@
+            <div class="col-md-4">
+                <label for="validationDefault01" class="form-label">Baslik</label>
+                <input type="text" name="Baslik" value="@Model.Baslik" class="form-control" id="validationDefault01" required>
+            </div>
+            <div class="col-md-4">
+                <label for="validationDefault02" class="form-label">Kategori</label>
+                @Html.DropDownList("KategoriId", null, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                <label for="validationDefault02" class="form-label">Icerik</label>
+                <input type="text" name="Icerik"  value="@Model.Icerik" class="form-control" id="validationDefault02" required>
+            </div>
+            <div class="col-md-4">
+                <label for="validationDefault02" class="form-label">Önceki Resim :</label>
+                <img src="@Model.ResimUrl" width="100" height="100"/>
+            </div>
+
+            <div class="col-md-4">
+                <label for="validationDefault02" class="form-label">Resim</label>
+                <input type="file" class="form-control" name="ResimUrl" accept=".jpeg,.png,.jpg">
+            </div>
+
+
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Ekle</button>
+                <button class="btn btn-close-white" type="submit"><a href="/Blog/Index"> İptal</a></button>
+            </div>
+            @*</form>*@
+
+
+        }
+    </div>
+</div>

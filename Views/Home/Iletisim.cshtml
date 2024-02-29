@@ -1,0 +1,59 @@
+﻿@model WebSiteAdminPanel.Models.Iletisim
+@{
+    ViewBag.Title = "Iletisim";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<main id="main">
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>İletişim</h2>
+                <ol>
+                    <li><a href="/Home/Index">Ana Sayfa</a></li>
+                    <li>İletişim</li>
+                </ol>
+            </div>
+
+        </div>
+    </section>
+    <section class="contact" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="info-box">
+                                <i class="bx bx-map"></i>
+                                <h3>Adres</h3>
+                                <p>@Model.Adres</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-box">
+                                <i class="bx bx-envelope"></i>
+                                <h3>Sosyal Medya</h3>
+                                <p>@Model.Twitter</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-box">
+                                <i class="bx bx-phone-call"></i>
+                                <h3>İletişim No</h3>
+                                <p>Whatsapp: @Model.Whatsapp</p>
+                                <p> Fax: @Model.Fax</p>
+                                <p> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="map mt-2">
+        <div class="container-fluid p-0">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3061.6597000875176!2d33.440936475455466!3d39.88185988802064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4081e0f71ef37235%3A0xf1255b97cfc4cfa!2zS8SxcsSxa2thbGUgw5xuaXZlcnNpdGVzaSBNw7xoZW5kaXNsaWsgRmFrw7xsdGVzaQ!5e0!3m2!1str!2str!4v1703344549845!5m2!1str!2str" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+</main>
+

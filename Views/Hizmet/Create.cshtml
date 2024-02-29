@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@Html.AntiForgeryToken()
+<h2> ---------------- </h2>
+<section class="section">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Hizmet Ekle</h5>
+                    @Html.AntiForgeryToken()
+                    <form method="post" action="/Hizmet/Create/" enctype="multipart/form-data">
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Baslik</label>
+                            <div class="col-sm-10">
+                                <input id="Baslik" name="Baslik" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Aciklama</label>
+                            <div class="col-sm-10">
+                                <input id="Aciklama" name="Aciklama" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            @Html.AntiForgeryToken()
+                            <label for="inputText" class="col-sm-2 col-form-label">ResimUrl</label>
+                            <div class="col-sm-10">
+                                <input type="file" id="ResimUrl" name="ResimUrl" accept=".jpeg,.png,.jpeg" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary">Kaydet</button>
+                                <button type="button" class="btn btn-outline-primary"> <a href="/Hizmet/Index">Geri Dön </a> </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

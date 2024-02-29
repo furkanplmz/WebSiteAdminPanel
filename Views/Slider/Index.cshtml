@@ -1,0 +1,115 @@
+﻿@*@model IEnumerable<WebSiteAdminPanel.Models.Model.Slider>
+
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    <h2></h2>
+    <section id="main">
+        <h2>Slider</h2>
+        <a class="btn btn-lg btn-outline-primary" href="/Slider/Create/">Yeni Ekle</a>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Baslik)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Aciklama)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ResimUrl)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Baslik)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Aciklama)
+                    </td>
+                    <td>
+                        <img src="@item.ResimUrl" width="200"height="100" />
+                    </td>
+                    <td>
+                        @Html.ActionLink("Güncelle", "Edit", new { id = item.SliderId }) |
+                        @Html.ActionLink("Detay", "Details", new { id = item.SliderId }) |
+                        @Html.ActionLink("Sil", "Delete", new { id = item.SliderId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </section>*@
+
+@model IEnumerable<WebSiteAdminPanel.Models.Model.Slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2></h2>
+<section id="main">
+    <h2>Slider</h2>
+    <a class="btn btn-lg btn-outline-primary" href="/Slider/Create/">Yeni Ekle</a>
+    <table class="table" id="sliderTable">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Baslik)</th>
+                <th>@Html.DisplayNameFor(model => model.Aciklama)</th>
+                <th>@Html.DisplayNameFor(model => model.ResimUrl)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Baslik)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Aciklama)</td>
+                    <td><img src="@item.ResimUrl" width="200" height="100" /></td>
+                    <td>
+                        <a class="edit-link" href="/Slider/Edit/@item.SliderId">Güncelle</a> |
+                        <a class="delete-link" href="/Slider/Delete/@item.SliderId">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('/Slider/Edit/e.SliderId').click(function (e) {
+                e.preventDefault();
+                var url = $(this).attr('href');
+
+                $.get(url, function (data) {
+                });
+            });
+            $('/Slider/Details/e.SliderId').click(function (e) {
+                e.preventDefault();
+                var url = $(this).attr('href');
+
+                $.get(url, function (data) {
+
+                });
+            });
+            $('/Slider/Delete/e.SliderId').click(function (e) {
+                e.preventDefault();
+                var url = $(this).attr('href');
+
+                $.post(url, function (data) {
+
+                });
+            });
+        });
+    </script>
+}

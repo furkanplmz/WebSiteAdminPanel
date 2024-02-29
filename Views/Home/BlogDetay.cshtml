@@ -1,0 +1,70 @@
+﻿@model WebSiteAdminPanel.Models.Blog
+@{
+    ViewBag.Title = "BlogDetay";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<main id="main">
+    <section class="breadcrumbs">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Blog</h2>
+                <ol>
+                    <li><a href="/Home/Index">Ana Sayfa</a></li>
+                    <li>Blog Detay</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-8 entries">
+                  
+                        <article class="entry">
+                            <div class="entry-img">
+                                <img src="@Model.ResimUrl" alt="" width="1024" height="360" class="img-fluid">
+                            </div>
+                            <h2 class="entry-title">
+                                <a>@Model.Baslik</a>
+                            </h2>
+                            <div class="entry-meta">
+                                <ul>
+                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">Kategori: @Model.Kategori.KategoriAd</a></li>
+                                </ul>
+                            </div>
+                            <div class="entry-content">
+                                <p>
+                                    @Model.Icerik
+                                </p>
+                            </div>
+                           
+                        </article>
+                    
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <h3 class="sidebar-title">Ara</h3>
+                        <div class="sidebar-item search-form">
+                            <form action="">
+                                <input type="text">
+                                <button type="submit"><i class="bi bi-search"></i></button>
+                            </form>
+                        </div>
+
+                        <h3 class="sidebar-title">Kategoriler</h3>
+                        <div class="sidebar-item categories">
+                            @{
+                                Html.RenderAction("BlogKategoriPartial", "Home");
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+

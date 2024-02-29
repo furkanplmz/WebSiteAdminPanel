@@ -1,0 +1,26 @@
+﻿@*@model IEnumerable<WebSiteAdminPanel.Models.Hizmet>
+<div class="container">
+
+    <div class="section-title">
+        <h2>Hizmetler</h2>
+        <p>Crypto Haber Sitemizin paragraf kısmıdır.</p>
+    </div>
+
+    @foreach (var item in Model)
+    {
+        <div class="row" data-aos="fade-up">
+            <div class="col-md-5">
+                <img src="@item.ResimUrl" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-7 pt-4">
+                <h3>@item.Baslik</h3>
+                <p class="fst-italic">
+                    @item.Aciklama
+                </p>
+            </div>
+        </div>
+    }
+
+
+
+</div>*@

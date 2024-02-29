@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebSiteAdminPanel.Models.Iletisim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section id="main">
+    <h2>İletişim</h2>
+    <table id="iletisimTable" class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Adres)</th>
+                <th>@Html.DisplayNameFor(model => model.Tel)</th>
+                <th>@Html.DisplayNameFor(model => model.Fax)</th>
+                <th>@Html.DisplayNameFor(model => model.Whatsapp)</th>
+                <th>@Html.DisplayNameFor(model => model.Twitter)</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Adres)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Tel)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Fax)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Whatsapp)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Twitter)</td>
+                    <td>
+                        <button class="btn btn-primary" onclick="Edit(@item.IletisimId)">Güncelle</button>
+                       
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        function Edit(IletisimId) {
+            
+            $.ajax({
+                url: '/Iletisim/Edit/' + IletisimId,
+                type: 'GET',
+                success: function () {
+                    
+                    window.location.href = '/Iletisim/Edit/' + IletisimId;
+                },
+                error: function () {
+                    console.log('AJAX isteği başarısız oldu.');
+                }
+            });
+        }
+    </script>
+}

@@ -1,0 +1,78 @@
+﻿@model WebSiteAdminPanel.Models.Site
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-md-push-4">
+            <h2>Güncelle</h2>
+
+            @using (Html.BeginForm("Edit","Site",FormMethod.Post,new {enctype="multipart/form-data"}))
+            {
+                @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Site</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.SiteId)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Baslik, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Baslik, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Baslik, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AnahtarKelimeler, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AnahtarKelimeler, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AnahtarKelimeler, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Tanim, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    
+                    @Html.EditorFor(model => model.Tanim, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Tanim, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LogoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" name="LogoUrl" accept=".png,.jpg,.jpeg" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.LogoUrl, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Unvan, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Unvan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Unvan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="submit" value="Güncelle" class="btn btn-outline-dark" />
+                </div>
+            </div>
+        </div>
+            }
+
+            <div>
+                @Html.ActionLink("Geri Dön", "Index")
+            </div>
+        </div>
+    </div>
+</div>

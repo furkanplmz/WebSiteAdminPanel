@@ -1,0 +1,9 @@
+﻿@model IEnumerable<WebSiteAdminPanel.Models.Kategori>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a href="/Home/BlogKategori/@item.KategoriId"> @item.KategoriAd</a></li>
+    }
+
+
+</ul>
